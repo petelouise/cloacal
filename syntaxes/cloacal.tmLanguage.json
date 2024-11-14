@@ -14,7 +14,7 @@
 					"match": "^\\s*\\|\\s*([^|]+?)\\s*\\|\\s*$",
 					"captures": {
 						"0": { "name": "meta.name-line.cloacal" },
-						"1": { "name": "entity.name.section.cloacal" }
+						"1": { "name": "constant.language.cloacal" }
 					}
 				}
 			]
@@ -23,8 +23,8 @@
 			"name": "meta.block-header.cloacal",
 			"match": "^\\s*(\\w+)\\s*([-]+)$",
 			"captures": {
-				"1": { "name": "constant.language.cloacal" },
-				"2": { "name": "punctuation.separator.cloacal" }
+				"1": { "name": "entity.name.tag.cloacal" },
+				"2": { "name": "keyword.control.cloacal" }
 			}
 		},
 		{
@@ -32,7 +32,7 @@
 			"match": "^(\\w+)\\s*([-]{3,})\\s*(.+)$",
 			"captures": {
 				"1": { "name": "entity.name.tag.cloacal" },
-				"2": { "name": "punctuation.separator.cloacal" },
+				"2": { "name": "keyword.control.cloacal" },
 				"3": { "name": "string.unquoted.value.cloacal" }
 			}
 		},
@@ -40,7 +40,7 @@
 			"name": "markup.list.cloacal",
 			"match": "^\\s*(>)\\s+(.+)$",
 			"captures": {
-				"1": { "name": "keyword.control.cloacal" },
+				"1": { "name": "constant.language.cloacal" },
 				"2": { "name": "string.unquoted.list-item.cloacal" }
 			}
 		},
