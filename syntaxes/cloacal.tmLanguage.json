@@ -20,20 +20,20 @@
 			]
 		},
 		{
+			"name": "meta.block-header.cloacal",
+			"match": "^\\s*(\\w+)\\s*([-]+)$",
+			"captures": {
+				"1": { "name": "constant.language.cloacal" },
+				"2": { "name": "punctuation.separator.cloacal" }
+			}
+		},
+		{
 			"name": "meta.key-value.cloacal",
 			"match": "^(\\w+)\\s*([-]{3,})\\s*(.+)$",
 			"captures": {
 				"1": { "name": "entity.name.tag.cloacal" },
 				"2": { "name": "punctuation.separator.cloacal" },
 				"3": { "name": "string.unquoted.value.cloacal" }
-			}
-		},
-		{
-			"name": "meta.block-header.cloacal",
-			"match": "^\\s*(\\w+)\\s*([-]+)$",
-			"captures": {
-				"1": { "name": "storage.type.cloacal" },
-				"2": { "name": "punctuation.separator.cloacal" }
 			}
 		},
 		{
