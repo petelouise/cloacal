@@ -6,6 +6,9 @@
   "engines": {
     "vscode": "^1.95.0"
   },
+  "requirements": {
+    "python": ">=3.6.0"
+  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",

@@ -272,30 +272,16 @@ def format_clo_string(input_text, max_line_length=44):
 
 
 if __name__ == "__main__":
-    ugly_input = """
-    +--+
-    | Carlisle |
-    +-----
-
-    age -- 99
-    species - seagull
-    ilk ------------ bird
-
-    description ----
-         Id ipsum elit tempor non incididunt laborum
-      anim dolore eu fugiat. Dolor consectetur aute occaecat. Ex do reprehenderit nulla sunt dolor
-      laborum qui. Qui voluptate tempor excepteur
-      ex ea excepteur. Ipsum do elit fugiat laboris
-      veniam pariatur.
-
-    memories -----------------------
-      >    Consectetur ut qui Lorem ad.
-      >  Veniam mollit nostrud velit laborum laborum veniam irure ut aute magna labore aliqua.
-      > 	 Magna reprehenderit anim esse aliquip magna do reprehenderit pariatur laborum do dolor.
-    """
-
-    # Format the input string
-    data = parse_clo(ugly_input)
-    print(data)
-    formatted_output = format_clo(data)
+    import sys
+    
+    # Read from stdin if no file specified
+    if len(sys.argv) < 2:
+        input_text = sys.stdin.read()
+    else:
+        # Read from file if specified
+        with open(sys.argv[1], 'r') as f:
+            input_text = f.read()
+    
+    # Format and output to stdout
+    formatted_output = format_clo_string(input_text)
     print(formatted_output)

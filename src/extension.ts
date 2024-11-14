@@ -12,17 +12,41 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        // Basic formatting implementation
-        // TODO: Implement actual formatting logic
         const text = document.getText();
-        const formatted = text.split('\n').map(line => line.trim()).join('\n');
+        
+        // Spawn Python formatter process
+        const { spawn } = require('child_process');
+        const pythonProcess = spawn('python3', ['/path/to/cloacal_parser.py']);
+        
+        let formattedOutput = '';
+        let errorOutput = '';
 
-        editor.edit(editBuilder => {
-            const fullRange = new vscode.Range(
-                document.positionAt(0),
-                document.positionAt(text.length)
-            );
-            editBuilder.replace(fullRange, formatted);
+        // Send document text to Python process
+        pythonProcess.stdin.write(text);
+        pythonProcess.stdin.end();
+
+        // Collect formatted output
+        pythonProcess.stdout.on('data', (data) => {
+            formattedOutput += data.toString();
+        });
+
+        pythonProcess.stderr.on('data', (data) => {
+            errorOutput += data.toString();
+        });
+
+        pythonProcess.on('close', (code) => {
+            if (code !== 0) {
+                vscode.window.showErrorMessage(`Formatter failed: ${errorOutput}`);
+                return;
+            }
+
+            editor.edit(editBuilder => {
+                const fullRange = new vscode.Range(
+                    document.positionAt(0),
+                    document.positionAt(text.length)
+                );
+                editBuilder.replace(fullRange, formattedOutput.trim());
+            });
         });
     });
 
