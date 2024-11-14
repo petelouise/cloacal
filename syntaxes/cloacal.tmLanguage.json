@@ -37,7 +37,7 @@
 			"name": "markup.list.cloacal",
 			"match": "^\\s*(>)\\s+(.+)$",
 			"captures": {
-				"1": { "name": "markup.list.bullet.cloacal" },
+				"1": { "name": "keyword.operator.logical.cloacal" },
 				"2": { "name": "string.unquoted.list-item.cloacal" }
 			}
 		},
