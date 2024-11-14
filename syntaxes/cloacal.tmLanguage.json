@@ -21,10 +21,11 @@
 		},
 		{
 			"name": "meta.key-value.cloacal",
-			"match": "^\\s*(\\w+)\\s*([-~>*]+)\\s*(.+)$",
+			"match": "^\\s*(\\w+)\\s*([-]+)\\s*(.+)$",
 			"captures": {
 				"1": { "name": "variable.other.key.cloacal" },
-				"2": { "name": "string.unquoted.value.cloacal" }
+				"2": { "name": "punctuation.separator.key-value.cloacal" },
+				"3": { "name": "string.unquoted.value.cloacal" }
 			}
 		},
 		{
@@ -34,14 +35,11 @@
 		},
 		{
 			"name": "meta.list-item.cloacal",
-			"begin": "^\\s*>\\s+",
-			"end": "$",
-			"patterns": [
-				{
-					"match": ".+",
-					"name": "markup.list.item.cloacal"
-				}
-			]
+			"match": "^\\s*(>)\\s+(.+)$",
+			"captures": {
+				"1": { "name": "punctuation.definition.list.cloacal" },
+				"2": { "name": "markup.list.item.cloacal" }
+			}
 		},
 		{
 			"name": "meta.block-content.cloacal",
