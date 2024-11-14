@@ -1,53 +1,63 @@
 {
-  "name": "cloacal",
-  "displayName": "cloacal",
-  "description": "syntax support for cloacal, the cutest language for objects",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.95.0"
-  },
-  "requirements": {
-    "python": ">=3.6.0"
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile"
-  },
-  "devDependencies": {
-    "@types/node": "^16.x",
-    "@types/vscode": "^1.95.0",
-    "typescript": "^5.0.0"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "contributes": {
-    "languages": [{
-      "id": "cloacal",
-      "aliases": ["cloacal", "cloacal"],
-      "extensions": [".clo"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "cloacal",
-      "scopeName": "source.cloacal",
-      "path": "./syntaxes/cloacal.tmLanguage.json"
-    }],
-    "commands": [{
-      "command": "cloacal.format",
-      "title": "Format Cloacal File"
-    }],
-    "keybindings": [{
-      "command": "cloacal.format",
-      "key": "ctrl+shift+f",
-      "mac": "cmd+shift+f",
-      "when": "editorTextFocus && editorLangId == cloacal"
-    }]
-  },
-  "activationEvents": [
-    "onLanguage:cloacal"
-  ],
-  "main": "./out/extension.js"
+	"name": "cloacal",
+	"displayName": "cloacal",
+	"description": "syntax support for cloacal, the cutest language for objects",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.95.0"
+	},
+	"requirements": {
+		"python": ">=3.6.0"
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile"
+	},
+	"devDependencies": {
+		"@types/node": "^16.x",
+		"@types/vscode": "^1.95.0",
+		"typescript": "^5.0.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "cloacal",
+				"aliases": [
+					"cloacal",
+					"cloacal"
+				],
+				"extensions": [
+					".clo"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "cloacal",
+				"scopeName": "source.cloacal",
+				"path": "./syntaxes/cloacal.tmLanguage.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "cloacal.format",
+				"title": "Format Cloacal File"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "cloacal.format",
+				"key": "ctrl+shift+f",
+				"mac": "cmd+shift+f",
+				"when": "editorTextFocus && editorLangId == cloacal"
+			}
+		]
+	},
+	"main": "./out/extension.js"
 }
