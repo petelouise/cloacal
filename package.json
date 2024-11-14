@@ -1,0 +1,25 @@
+{
+  "name": "cloacal",
+  "displayName": "cloacal",
+  "description": "syntax support for cloacal, the cutest language for objects",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "cloacal",
+      "aliases": ["cloacal", "cloacal"],
+      "extensions": [".clo"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "cloacal",
+      "scopeName": "source.cloacal",
+      "path": "./syntaxes/cloacal.tmLanguage.json"
+    }]
+  }
+}
