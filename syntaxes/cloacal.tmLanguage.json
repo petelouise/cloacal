@@ -30,9 +30,9 @@
 		},
 		{
 			"name": "meta.block-header.cloacal",
-			"match": "^\\s*(\\w+)\\s*(-+)$",
+			"match": "^\\s*(\\w+)\\s*([-]+)$",
 			"captures": {
-				"1": { "name": "keyword.control.cloacal" },
+				"1": { "name": "storage.type.cloacal" },
 				"2": { "name": "punctuation.separator.cloacal" }
 			}
 		},
