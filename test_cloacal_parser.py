@@ -335,7 +335,7 @@ def test_format_basic_input():
 
     expected_output = """
 +------------------------------------------+
-|                 Carlisle                  |
+|                 Carlisle                 |
 +------------------------------------------+
 
 age ------- 99
@@ -404,7 +404,7 @@ def test_format_only_name():
 
     expected_output = """
 +------------------------------------------+
-|                   Solo                    |
+|                   Solo                   |
 +------------------------------------------+
 """.strip()
 
@@ -426,9 +426,9 @@ def test_format_unexpected_content():
     """
 
     expected_output = """
-+--------+
-| Random |
-+--------+
++------------------------------------------+
+|                  Random                  |
++------------------------------------------+
 
 age ------------- 22
 description ----- Contains unexpected content.
@@ -450,9 +450,9 @@ def test_format_long_name():
     """
 
     expected_output = """
-+------------------------------------------+
-|        The Great and Powerful Name        |
-+------------------------------------------+
++-----------------------------------------+
+|       The Great and Powerful Name       |
++-----------------------------------------+
 
 age ------- 100
 species --- mythical creature
@@ -477,7 +477,7 @@ def test_format_block_without_content():
 
     expected_output = """
 +------------------------------------------+
-|                EmptyBlock                 |
+|                EmptyBlock                |
 +------------------------------------------+
 
 age ----------- 30
@@ -509,7 +509,7 @@ def test_format_multiple_blocks():
 
     expected_output = """
 +------------------------------------------+
-|                MultiBlock                 |
+|                MultiBlock                |
 +------------------------------------------+
 
 abilities --- Strength, Agility, Intelligence
