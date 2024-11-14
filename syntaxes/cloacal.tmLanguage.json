@@ -37,7 +37,7 @@
 			"name": "markup.list.cloacal",
 			"match": "^\\s*(>)\\s+(.+)$",
 			"captures": {
-				"1": { "name": "storage.type.cloacal" },
+				"1": { "name": "keyword.control.cloacal" },
 				"2": { "name": "string.unquoted.list-item.cloacal" }
 			}
 		},
