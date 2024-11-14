@@ -7,14 +7,14 @@
 			"name": "meta.name-box.cloacal",
 			"begin": "^\\s*\\+([-]+)\\+\\s*$",
 			"end": "^\\s*\\+([-]+)\\+\\s*$",
-			"beginCaptures": { "1": { "name": "punctuation.definition.box.cloacal" } },
-			"endCaptures": { "1": { "name": "punctuation.definition.box.cloacal" } },
+			"beginCaptures": { "1": { "name": "punctuation.definition.heading.cloacal" } },
+			"endCaptures": { "1": { "name": "punctuation.definition.heading.cloacal" } },
 			"patterns": [
 				{
 					"match": "^\\s*\\|\\s*([^|]+?)\\s*\\|\\s*$",
 					"captures": {
 						"0": { "name": "meta.name-line.cloacal" },
-						"1": { "name": "entity.name.character.cloacal" }
+						"1": { "name": "entity.name.section.cloacal" }
 					}
 				}
 			]
@@ -24,21 +24,21 @@
 			"match": "^\\s*(\\w+)\\s*([-]+)\\s*(.+)$",
 			"captures": {
 				"1": { "name": "variable.other.key.cloacal" },
-				"2": { "name": "punctuation.separator.key-value.cloacal" },
+				"2": { "name": "keyword.operator.separator.cloacal" },
 				"3": { "name": "string.unquoted.value.cloacal" }
 			}
 		},
 		{
 			"name": "meta.block-header.cloacal",
 			"match": "^\\s*(\\w+)\\s*([-~>*]+)\\s*$",
-			"captures": { "1": { "name": "keyword.control.block.cloacal" } }
+			"captures": { "1": { "name": "keyword.control.cloacal" } }
 		},
 		{
 			"name": "meta.list-item.cloacal",
 			"match": "^\\s*(>)\\s+(.+)$",
 			"captures": {
-				"1": { "name": "punctuation.definition.list.cloacal" },
-				"2": { "name": "markup.list.item.cloacal" }
+				"1": { "name": "punctuation.definition.quote.cloacal" },
+				"2": { "name": "markup.quote.cloacal" }
 			}
 		},
 		{
