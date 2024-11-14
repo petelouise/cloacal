@@ -6,6 +6,17 @@
   "engines": {
     "vscode": "^1.95.0"
   },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^16.x",
+    "@types/vscode": "^1.95.0",
+    "typescript": "^5.0.0"
+  },
   "categories": [
     "Programming Languages"
   ],
@@ -20,6 +31,20 @@
       "language": "cloacal",
       "scopeName": "source.cloacal",
       "path": "./syntaxes/cloacal.tmLanguage.json"
+    }],
+    "commands": [{
+      "command": "cloacal.format",
+      "title": "Format Cloacal File"
+    }],
+    "keybindings": [{
+      "command": "cloacal.format",
+      "key": "ctrl+shift+f",
+      "mac": "cmd+shift+f",
+      "when": "editorTextFocus && editorLangId == cloacal"
     }]
-  }
+  },
+  "activationEvents": [
+    "onLanguage:cloacal"
+  ],
+  "main": "./out/extension.js"
 }
