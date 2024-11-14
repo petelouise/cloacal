@@ -24,7 +24,7 @@
 			"match": "^\\s*(\\w+)\\s*([-]+)\\s*(.+)$",
 			"captures": {
 				"1": { "name": "variable.other.key.cloacal" },
-				"2": { "name": "keyword.operator.separator.cloacal" },
+				"2": { "name": "punctuation.separator.cloacal" },
 				"3": { "name": "string.unquoted.value.cloacal" }
 			}
 		},
@@ -34,11 +34,11 @@
 			"captures": { "1": { "name": "keyword.control.cloacal" } }
 		},
 		{
-			"name": "meta.list-item.cloacal",
+			"name": "markup.list.cloacal",
 			"match": "^\\s*(>)\\s+(.+)$",
 			"captures": {
-				"1": { "name": "punctuation.definition.quote.cloacal" },
-				"2": { "name": "markup.quote.cloacal" }
+				"1": { "name": "markup.list.bullet.cloacal" },
+				"2": { "name": "string.unquoted.list-item.cloacal" }
 			}
 		},
 		{
