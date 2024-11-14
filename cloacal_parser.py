@@ -160,17 +160,13 @@ def format_clo(data, max_line_length=44):
     if "name" in data:
         name = data["name"]
         name_length = len(name)
-        box_width = max(name_length + 4, 10)  # Minimum width to fit the name
-        # Ensure box_width is even for perfect centering
-        if box_width % 2 != 0:
-            box_width += 1
+        # Use max_line_length for box width, adjust if name length is odd
+        box_width = max_line_length if name_length % 2 == 0 else max_line_length - 1
         top_bottom = "+" + "-" * (box_width - 2) + "+"
-        # Center the name with equal spaces on both sides
-        name_padding = (box_width - 4 - len(name)) // 2
-        middle = "| " + " " * name_padding + name + " " * name_padding + " |"
-        # Adjust if name length causes uneven spacing
-        if (box_width - 4 - len(name)) % 2 != 0:
-            middle = middle[:-2] + "  |"
+        # Calculate padding needed for perfect centering
+        total_padding = box_width - 4 - name_length  # -4 for "| " and " |"
+        padding = " " * (total_padding // 2)
+        middle = f"| {padding}{name}{padding} |"
         lines.append(top_bottom)
         lines.append(middle)
         lines.append(top_bottom)

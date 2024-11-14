@@ -334,9 +334,9 @@ def test_format_basic_input():
     """
 
     expected_output = """
-+----------+
-| Carlisle |
-+----------+
++------------------------------------------+
+|                 Carlisle                  |
++------------------------------------------+
 
 age ------- 99
 ilk ------- bird
@@ -403,9 +403,9 @@ def test_format_only_name():
     """
 
     expected_output = """
-+--------+
-|  Solo  |
-+--------+
++------------------------------------------+
+|                   Solo                    |
++------------------------------------------+
 """.strip()
 
     formatted_output = format_clo_string(ugly_input)
@@ -450,9 +450,9 @@ def test_format_long_name():
     """
 
     expected_output = """
-+------------------------------+
-| The Great and Powerful Name  |
-+------------------------------+
++------------------------------------------+
+|        The Great and Powerful Name        |
++------------------------------------------+
 
 age ------- 100
 species --- mythical creature
@@ -476,9 +476,9 @@ def test_format_block_without_content():
     """
 
     expected_output = """
-+------------+
-| EmptyBlock |
-+------------+
++------------------------------------------+
+|                EmptyBlock                 |
++------------------------------------------+
 
 age ----------- 30
 description ---
@@ -508,9 +508,9 @@ def test_format_multiple_blocks():
     """
 
     expected_output = """
-+------------+
-| MultiBlock |
-+------------+
++------------------------------------------+
+|                MultiBlock                 |
++------------------------------------------+
 
 abilities --- Strength, Agility, Intelligence
 
