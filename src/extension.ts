@@ -16,7 +16,9 @@ export function activate(context: vscode.ExtensionContext) {
         
         // Spawn Python formatter process
         const { spawn } = require('child_process');
-        const pythonProcess = spawn('python3', ['/path/to/cloacal_parser.py']);
+        const { join } = require('path');
+        const formatterPath = join(context.extensionPath, 'cloacal_parser.py');
+        const pythonProcess = spawn('python3', [formatterPath]);
         
         let formattedOutput = '';
         let errorOutput = '';
