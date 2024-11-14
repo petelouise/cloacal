@@ -21,9 +21,9 @@
 		},
 		{
 			"name": "meta.key-value.cloacal",
-			"match": "^\\s*(\\w+)\\s*([-]+)\\s*(.+)$",
+			"match": "^(\\w+)\\s*([-]{3,})\\s*(.+)$",
 			"captures": {
-				"1": { "name": "variable.other.key.cloacal" },
+				"1": { "name": "entity.name.tag.cloacal" },
 				"2": { "name": "punctuation.separator.cloacal" },
 				"3": { "name": "string.unquoted.value.cloacal" }
 			}
