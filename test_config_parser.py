@@ -1,10 +1,10 @@
-from typing import OrderedDict
+from collections import OrderedDict
 
-from config_parser import format_dsl_string, parse_dsl
+from cloacal_parser import format_clo_string, parse_clo
 
 
 def test_parse_basic_input():
-    dsl_input = """
+    clo_input = """
     +--------------+
     |   Carlisle   |
     +--------------+
@@ -48,12 +48,12 @@ def test_parse_basic_input():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
 def test_parse_inconsistent_formatting():
-    dsl_input = """
+    clo_input = """
     +--+
     | Carlisle |
     +-----
@@ -94,12 +94,12 @@ def test_parse_inconsistent_formatting():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
 def test_parse_missing_fields():
-    dsl_input = """
+    clo_input = """
     +--+
     | Anonymous |
     +-----
@@ -118,21 +118,21 @@ def test_parse_missing_fields():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
 def test_parse_empty_input():
-    dsl_input = ""
+    clo_input = ""
 
     expected_output = OrderedDict({})
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
 def test_parse_no_name_box():
-    dsl_input = """
+    clo_input = """
     age ------- 25
     species --- human
     ilk ------- warrior
@@ -150,12 +150,12 @@ def test_parse_no_name_box():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
 def test_parse_multiple_blocks():
-    dsl_input = """
+    clo_input = """
     +--+
     | MultiBlock |
     +-----
@@ -181,12 +181,12 @@ def test_parse_multiple_blocks():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
 def test_parse_unexpected_formatting():
-    dsl_input = """
+    clo_input = """
     +--+
     | Mysterious |
     +-----
@@ -214,12 +214,12 @@ def test_parse_unexpected_formatting():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
 def test_parse_nested_lists():
-    dsl_input = """
+    clo_input = """
     +--+
     | NestedList |
     +-----
@@ -242,12 +242,12 @@ def test_parse_nested_lists():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
 def test_parse_block_without_content():
-    dsl_input = """
+    clo_input = """
     +--+
     | EmptyBlock |
     +-----
@@ -267,7 +267,7 @@ def test_parse_block_without_content():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output or result == {
         "name": "EmptyBlock",
         "description": "",
@@ -277,7 +277,7 @@ def test_parse_block_without_content():
 
 
 def test_parse_incorrect_indentation():
-    dsl_input = """
+    clo_input = """
     +--+
     | IndentationTest |
     +-----
@@ -306,7 +306,7 @@ def test_parse_incorrect_indentation():
         }
     )
 
-    result = parse_dsl(dsl_input)
+    result = parse_clo(clo_input)
     assert result == expected_output
 
 
@@ -361,7 +361,7 @@ memories ----------------------------------
     do dolor.
 """.strip()
 
-    formatted_output = format_dsl_string(ugly_input)
+    formatted_output = format_clo_string(ugly_input)
     assert formatted_output == expected_output
 
 
@@ -382,7 +382,7 @@ description -------------------------------
   A character with no name box.
 """.strip()
 
-    formatted_output = format_dsl_string(ugly_input)
+    formatted_output = format_clo_string(ugly_input)
     assert formatted_output == expected_output
 
 
@@ -391,7 +391,7 @@ def test_format_empty_input():
 
     expected_output = ""
 
-    formatted_output = format_dsl_string(ugly_input)
+    formatted_output = format_clo_string(ugly_input)
     assert formatted_output == expected_output
 
 
@@ -408,7 +408,7 @@ def test_format_only_name():
 +--------+
 """.strip()
 
-    formatted_output = format_dsl_string(ugly_input)
+    formatted_output = format_clo_string(ugly_input)
     assert formatted_output == expected_output
 
 
@@ -435,7 +435,7 @@ description ----- Contains unexpected content.
 unknown_field --- data
 """.strip()
 
-    formatted_output = format_dsl_string(ugly_input)
+    formatted_output = format_clo_string(ugly_input)
     assert formatted_output == expected_output
 
 
@@ -458,7 +458,7 @@ age ------- 100
 species --- mythical creature
 """.strip()
 
-    formatted_output = format_dsl_string(ugly_input)
+    formatted_output = format_clo_string(ugly_input)
     assert formatted_output == expected_output
 
 
@@ -485,7 +485,7 @@ description ---
 memories ------
 """.strip()
 
-    formatted_output = format_dsl_string(ugly_input)
+    formatted_output = format_clo_string(ugly_input)
     assert formatted_output == expected_output
 
 
@@ -524,5 +524,5 @@ notes -------------------------------------
   sections.
 """.strip()
 
-    formatted_output = format_dsl_string(ugly_input)
+    formatted_output = format_clo_string(ugly_input)
     assert formatted_output == expected_output

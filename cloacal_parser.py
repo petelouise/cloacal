@@ -7,8 +7,6 @@ def parse_clo(input_text):
     """
     Parses the clo input text and returns an OrderedDict representing the data.
     """
-    import re
-    from collections import OrderedDict
 
     lines = input_text.strip("\n").split("\n")
     data = OrderedDict()
@@ -153,8 +151,6 @@ def format_clo(data, max_line_length=44):
         max_line_length: Maximum length for wrapped lines (default: 44)
     """
     # Formatting parameters
-    key_width = max((len(key) for key in data.keys() if key != "name"), default=0)
-    dash_width = max(3, key_width)
     wrap_width = max_line_length
     indent = 2  # Indentation for block texts
 
