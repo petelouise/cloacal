@@ -3,9 +3,9 @@ import textwrap
 from collections import OrderedDict
 
 
-def parse_dsl(input_text):
+def parse_clo(input_text):
     """
-    Parses the DSL input text and returns an OrderedDict representing the data.
+    Parses the clo input text and returns an OrderedDict representing the data.
     """
     import re
     from collections import OrderedDict
@@ -144,12 +144,12 @@ def parse_dsl(input_text):
     return data
 
 
-def format_dsl(data, max_line_length=44):
+def format_clo(data, max_line_length=44):
     """
-    Formats the data OrderedDict into a nicely formatted DSL string.
+    Formats the data OrderedDict into a nicely formatted clo string.
 
     Args:
-        data: OrderedDict containing the parsed DSL data
+        data: OrderedDict containing the parsed clo data
         max_line_length: Maximum length for wrapped lines (default: 44)
     """
     # Formatting parameters
@@ -262,16 +262,16 @@ def format_dsl(data, max_line_length=44):
     return formatted_text.strip("\n")
 
 
-def format_dsl_string(input_text, max_line_length=44):
+def format_clo_string(input_text, max_line_length=44):
     """
-    Takes an ugly DSL input string and returns a nicely formatted DSL string.
+    Takes an ugly clo input string and returns a nicely formatted clo string.
 
     Args:
-        input_text: The input DSL string to format
+        input_text: The input clo string to format
         max_line_length: Maximum length for wrapped lines (default: 44)
     """
-    data = parse_dsl(input_text)
-    formatted_output = format_dsl(data, max_line_length=max_line_length)
+    data = parse_clo(input_text)
+    formatted_output = format_clo(data, max_line_length=max_line_length)
     return formatted_output
 
 
@@ -299,7 +299,7 @@ if __name__ == "__main__":
     """
 
     # Format the input string
-    data = parse_dsl(ugly_input)
+    data = parse_clo(ugly_input)
     print(data)
-    formatted_output = format_dsl(data)
+    formatted_output = format_clo(data)
     print(formatted_output)
