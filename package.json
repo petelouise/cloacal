@@ -57,7 +57,19 @@
 				"mac": "cmd+shift+f",
 				"when": "editorTextFocus && editorLangId == cloacal"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Cloacal",
+			"properties": {
+				"cloacal.maxLineWidth": {
+					"type": "number",
+					"default": 44,
+					"minimum": 20,
+					"maximum": 120,
+					"description": "Maximum line width for formatted .clo files"
+				}
+			}
+		}
 	},
 	"main": "./out/extension.js",
 	"activationEvents": [

@@ -269,15 +269,21 @@ def format_clo_string(input_text, max_line_length=44):
 
 if __name__ == "__main__":
     import sys
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Format a .clo file')
+    parser.add_argument('file', nargs='?', help='Input file (optional, reads from stdin if not provided)')
+    parser.add_argument('--width', type=int, default=44, help='Maximum line width (default: 44)')
+    args = parser.parse_args()
     
     # Read from stdin if no file specified
-    if len(sys.argv) < 2:
+    if not args.file:
         input_text = sys.stdin.read()
     else:
         # Read from file if specified
-        with open(sys.argv[1], 'r') as f:
+        with open(args.file, 'r') as f:
             input_text = f.read()
     
     # Format and output to stdout
-    formatted_output = format_clo_string(input_text)
+    formatted_output = format_clo_string(input_text, max_line_length=args.width)
     print(formatted_output)

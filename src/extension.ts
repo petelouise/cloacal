@@ -18,7 +18,9 @@ export function activate(context: vscode.ExtensionContext) {
         const { spawn } = require('child_process');
         const { join } = require('path');
         const formatterPath = join(context.extensionPath, 'cloacal_parser.py');
-        const pythonProcess = spawn('python3', [formatterPath]);
+        const config = vscode.workspace.getConfiguration('cloacal');
+        const maxLineWidth = config.get('maxLineWidth', 44);
+        const pythonProcess = spawn('python3', [formatterPath, '--width', maxLineWidth.toString()]);
         
         let formattedOutput = '';
         let errorOutput = '';
