@@ -28,15 +28,15 @@ export function activate(context: vscode.ExtensionContext) {
         pythonProcess.stdin.end();
 
         // Collect formatted output
-        pythonProcess.stdout.on('data', (data) => {
+        pythonProcess.stdout.on('data', (data: Buffer) => {
             formattedOutput += data.toString();
         });
 
-        pythonProcess.stderr.on('data', (data) => {
+        pythonProcess.stderr.on('data', (data: Buffer) => {
             errorOutput += data.toString();
         });
 
-        pythonProcess.on('close', (code) => {
+        pythonProcess.on('close', (code: number | null) => {
             if (code !== 0) {
                 vscode.window.showErrorMessage(`Formatter failed: ${errorOutput}`);
                 return;
